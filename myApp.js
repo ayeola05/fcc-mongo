@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const personSchema = new mongoose.Schema({
   name: { type: String, required: true },
   age: { type: Number },
-  favouriteFood: [String],
+  favouriteFoods: [String],
 });
 
 let Person = mongoose.model("Person", personSchema);
