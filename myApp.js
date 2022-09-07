@@ -7,13 +7,15 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-const personSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const personSchema = new Schema({
   name: { type: String, required: true },
-  age: { type: Number },
-  favouriteFoods: [String],
+  age: Number,
+  favoriteFoods: [String],
 });
 
-let Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
