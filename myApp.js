@@ -23,7 +23,10 @@ const createAndSavePerson = async (done) => {
     age: 20,
     favouriteFoods: ["eggs", "fish"],
   });
-  await person.save();
+  person.save(function (err, data) {
+    if (err) return console.error(err);
+    done(null, data);
+  });
   done(null /*, data*/);
 };
 
